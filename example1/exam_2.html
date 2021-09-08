@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>exam_2</title>
+</head>
+
+<body>
+    <div>
+        <script type="text/javascript">
+            function baz() {
+                // 调用栈是: `baz`
+                // 我们的调用点是 global scope（全局作用域）
+
+                console.log("baz");
+                bar(); // <-- `bar` 的调用点
+            }
+
+            function bar() {
+                // 调用栈是: `baz` -> `bar`
+                // 我们的调用点位于 `baz`
+
+                console.log("bar");
+                foo(); // <-- `foo` 的 call-site
+            }
+
+            function foo() {
+                // 调用栈是: `baz` -> `bar` -> `foo`
+                // 我们的调用点位于 `bar`
+
+                console.log("foo");
+            }
+
+            baz(); // <-- `baz` 的调用点
+            document.writeln(typeof "hello world!");
+            document.writeln("<br/>");
+            document.writeln(typeof 123.1);
+            document.writeln("<br/>");
+            document.writeln(typeof Symbol());
+            document.writeln("<br/>");
+            document.writeln(typeof [1, 2, 3]);
+            document.writeln("<br/>");
+            document.writeln(typeof { name: "Rongbo_J", age: 23 });
+            document.writeln("<br/>");
+            document.writeln(typeof /^[1-9]$/);
+            document.writeln("<br/>");
+            document.writeln(typeof true);
+            document.writeln("<br/>");
+            document.writeln(typeof undefined);
+            document.writeln("<br/>");
+        </script>
+
+    </div>
+</body>
+
+</html>
